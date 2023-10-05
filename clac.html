@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        BASIC CALCULATOR
+        <style>
+            #main{width: 300px; height:280; background-color: black;}
+            input{width: 15%; height: 40px; font-size: 20px; margin: 4px;}
+            #eee{width: 91.8%; height:50px; background-color: silver;}
+            
+        </style>
+
+        
+    </head>
+    <body>
+        <div id="main">
+            <form name="f">
+                <input type="text" name="ddd" placeholder="0" id="eee"> <br>
+                <input type="button" value="1" onclick="f.ddd.value+=1">
+                <input type="button" value="2" onclick="f.ddd.value+=2">
+                <input type="button" value="3" onclick="f.ddd.value+=3">
+                <input type="button" value="+" onclick="add()">
+                <input type="button" value="C" onclick="f.ddd.value=' '">
+                <br>
+                <input type="button" value="4" onclick="f.ddd.value+=4">
+                <input type="button" value="5" onclick="f.ddd.value+=5">
+                <input type="button" value="6" onclick="f.ddd.value+=6">
+                <input type="button" value="-" onclick="sub()">
+                <br>
+                <input type="button" value="7" onclick="f.ddd.value+=7">
+                <input type="button" value="8" onclick="f.ddd.value+=8">
+                <input type="button" value="9" onclick="f.ddd.value+=9">
+                <input type="button" value="/" onclick="divide()">
+                <br>
+                <input type="button" id="lo" value="." onclick="dot()">
+                <input type="button" value="0" onclick="f.ddd.value+=0">
+                <input type="button" value="=" onclick="eq()">
+                <input type="button" value="*" onclick="mult()">
+                
+                <br>
+            </form>
+        </div>
+        <script>
+             function add(){ 
+                var act=0, b=0;
+                act=f.ddd.value;
+                b=act.charAt(act.length-1); 
+                if(b=='+'||b=='-'||b=='/'||b=='*'){
+                    f.ddd.value=act.substring(0,act.length-1)+'+'; }
+                else{ f.ddd.value+='+'; }
+                if(f.ddd.value=='+') {f.ddd.value=''; }}
+           
+                function sub(){ 
+                var act=0, b=0;
+                act=f.ddd.value;
+                b=act.charAt(act.length-1); 
+                if(b=='+'||b=='-'||b=='/'||b=='*'){
+                    f.ddd.value=act.substring(0,act.length-1)+'-'; }
+                else{ f.ddd.value+='-'; }
+                if(f.ddd.value=='-') {f.ddd.value=''; }}
+
+                function divide(){ 
+                var act=0, b=0;
+                act=f.ddd.value;
+                b=act.charAt(act.length-1); 
+                for(var i =0; i<act.length-1; i+=1){
+                    var k=act.charAt(i);
+                    if(k=='/') {k=1; break;} 
+                }
+                if(k==1);
+                else {
+                if(b=='+'||b=='-'||b=='/'||b=='*'){
+                    f.ddd.value=act.substring(0,act.length-1)+'/'; }
+                else{ f.ddd.value+='/'; }}
+                if(f.ddd.value=='/') {f.ddd.value=''; }}
+
+               /* function mult(){ 
+                var act=0, b=0;
+                act=f.ddd.value; console.log("act="+act);
+                b=act.charAt(act.length-1);  console.log("b="+b);
+                if(b=='+'||b=='-'||b=='/'||b=='*'){
+                    f.ddd.value=act.substring(0,act.length-1)+'*';  }
+                else{ f.ddd.value+='*'; }
+                if(f.ddd.value=='*') {f.ddd.value=''; }}  */ 
+
+                function mult(){ 
+                var act=0, b=0;
+                act=f.ddd.value; console.log("act="+act);
+                b=act.charAt(act.length-1);  console.log("b="+b);
+                if(b=='+'||b=='-'||b=='/'||b=='*'){
+                    f.ddd.value=act.substring(0,act.length-1)+'*';  }
+                else{ f.ddd.value+='*'; }
+                if(f.ddd.value=='*') {f.ddd.value=''; }} 
+                
+                function eq(){ 
+                var act=0, b=0;
+                act=f.ddd.value;
+                b=act.charAt(act.length-1); 
+                if(b=='+'||b=='-'||b=='/'||b=='*'){
+                    f.ddd.value=NaN; }
+                else{ f.ddd.value=eval(f.ddd.value); }
+            }
+            function dot(){
+                var act=0, b=0;
+                act=f.ddd.value;
+                b=act.charAt(act.length-1); 
+                if(b=='.'){ }
+                else{ f.ddd.value+='.'; }
+            }
+
+
+        </script>
+    </body>
+</html>
